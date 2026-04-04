@@ -30,7 +30,4 @@ Bash
 # Using the target classes
 java -cp target/classes Main
 
-# Or via the source directory
-cd src/main/java
-javac Main.java Task.java TaskManager.java
-java Main
+
