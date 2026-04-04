@@ -1,8 +1,8 @@
 
                         
-
-Treść wiadomości Gemini
 📝 CLI Task Tracker
+
+
   <img width="437" height="194" alt="image" src="https://github.com/user-attachments/assets/e7474d1a-6735-4baa-ad19-f4fad57bdf84" />
 
 A lightweight, terminal-based task management application built with Java. This tool allows you to track your daily progress with local persistence, ensuring your tasks are saved even after closing the program.
