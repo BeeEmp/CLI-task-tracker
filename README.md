@@ -3,60 +3,27 @@ Markdown
 # 📝 CLI Task Tracker
 
 A lightweight, terminal-based task management application built with Java. This tool allows you to track your daily progress with local persistence, ensuring your tasks are saved even after closing the program.
+                          <img width="437" height="194" alt="image" src="https://github.com/user-attachments/assets/e7474d1a-6735-4baa-ad19-f4fad57bdf84" />
 
----
+                          Core Logic
 
-## 🚀 Getting Started
+    Data Persistence: Saves all entries to a tasks.json file in the project root.
 
-### Prerequisites
-* **Java 25** (as specified in the project configuration).
-* **Maven** (optional, for easier builds).
+    ID Re-indexing: Automatically re-sequences IDs (1, 2, 3...) when a task is deleted to prevent gaps.
 
-### Option 1: Run with Maven (Recommended)
-From the root directory, run:
-```bash
-mvn clean compile exec:java
+    Timestamping: Records createdAt and updates updatedAt whenever a task is modified.
 
-This uses the exec-maven-plugin defined in your configuration to target the Main class.
-Option 2: Run with Standard Java
-
-If you don't want to use Maven, compile and run directly from the source folder:
-
-
-Bash
-
-java -cp target/classes Main
-
-or
-
-cd src/main/java
-javac Main.java Task.java TaskManager.java
-java Main
-
-🛠️ How It Works
-
-    Persistence: Tasks are stored in a file named tasks.json in the project root. The system manually parses this JSON to rebuild your task list every time you launch the app.
-
-    Automatic ID Management: Every task is assigned a unique ID. If a task is deleted, the system re-indexes the remaining tasks to keep the IDs sequential (1, 2, 3...).
-
-    Timestamps: Each task automatically tracks its createdAt time and updates its updatedAt field whenever the description or status is modified.
-
-⌨️ Available Commands
+Command Reference
 Command	Action
-add	Create a new task. You will be prompted for a status and description.
-list	View all saved tasks.
-list <filter>	Filter tasks by status (e.g., list done, list todo, or list in-progress).
-update	Modify an existing task's description or status by providing its ID.
-delete	Remove a task by its ID.
-exit	Securely saves all data to tasks.json and closes the application.
-📂 Project Structure
+add	Creates a new task.
+list	Displays all tasks or filters by status (todo, in-progress, done).
+update	Edits description or status by ID.
+delete	Removes a task and triggers re-indexing.
+exit	Saves data to the JSON file and closes the app.
+File Roles
 
-    src/main/java/Main.java: The CLI menu and user input handler.
+    Main.java: Manages the user interface and input loop.
 
-    src/main/java/TaskManager.java: The logic engine for adding, deleting, and file I/O.
+    TaskManager.java: Handles the logic for adding, deleting, and file I/O operations.
 
-    src/main/java/Task.java: The data model representing a single task.
-
-    pom.xml: Maven build configuration.
-
-    tasks.json: The local database file (created automatically).
+    Task.java: The object model for a task (ID, description, status, timestamps).
