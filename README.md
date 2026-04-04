@@ -1,29 +1,36 @@
-Markdown
 
-# 📝 CLI Task Tracker
+                        
+
+Treść wiadomości Gemini
+📝 CLI Task Tracker
+  <img width="437" height="194" alt="image" src="https://github.com/user-attachments/assets/e7474d1a-6735-4baa-ad19-f4fad57bdf84" />
 
 A lightweight, terminal-based task management application built with Java. This tool allows you to track your daily progress with local persistence, ensuring your tasks are saved even after closing the program.
-                          <img width="437" height="194" alt="image" src="https://github.com/user-attachments/assets/e7474d1a-6735-4baa-ad19-f4fad57bdf84" />
+🚀 Getting Started
+Prerequisites
 
-                          Core Logic
+    Java 25 (as specified in the project configuration)
 
-    Data Persistence: Saves all entries to a tasks.json file in the project root.
+    Maven (optional, for easier builds)
 
-    ID Re-indexing: Automatically re-sequences IDs (1, 2, 3...) when a task is deleted to prevent gaps.
+Installation & Running
+Option 1: Run with Maven (Recommended)
 
-    Timestamping: Records createdAt and updates updatedAt whenever a task is modified.
+From the root directory, run:
+Bash
 
-Command Reference
-Command	Action
-add	Creates a new task.
-list	Displays all tasks or filters by status (todo, in-progress, done).
-update	Edits description or status by ID.
-delete	Removes a task and triggers re-indexing.
-exit	Saves data to the JSON file and closes the app.
-File Roles
+mvn clean compile exec:java
 
-    Main.java: Manages the user interface and input loop.
+This uses the exec-maven-plugin defined in your configuration to target the Main class.
+Option 2: Run with Standard Java
 
-    TaskManager.java: Handles the logic for adding, deleting, and file I/O operations.
+If you prefer not to use Maven, compile and run directly from the source:
+Bash
 
-    Task.java: The object model for a task (ID, description, status, timestamps).
+# Using the target classes
+java -cp target/classes Main
+
+# Or via the source directory
+cd src/main/java
+javac Main.java Task.java TaskManager.java
+java Main
